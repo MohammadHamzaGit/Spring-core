@@ -14,9 +14,9 @@ class Application{
         reader.loadBeanDefinitions(new ClassPathResource("application-properties.xml"));
 
         MessageWriter messageWriter = (MessageWriter) beanFactory.getBean("messageWriter");
-        MessageProducer HTMLmessageProducer = (MessageProducer) beanFactory.getBean("htmlMessageProducer");
-        MessageProducer PDFmessageProducer = (MessageProducer) beanFactory.getBean("pdfMessageProducer");
-        messageWriter.setProducer(HTMLmessageProducer);
+        MessageProducer messageProducer = (MessageProducer) beanFactory.getBean("htmlMessageProducer");
+        //MessageProducer PDFmessageProducer = (MessageProducer) beanFactory.getBean("pdfMessageProducer");
+        messageWriter.setProducer(messageProducer);
         messageWriter.writeMessage("Welcome to Spring ");
     }
 }
